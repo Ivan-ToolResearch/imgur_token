@@ -16,8 +16,8 @@ def get_input(string):
 
 def authenticate():
     # Get client ID and secret from config.py
-    client_id = '44a97a3ff8f5b15'
-    client_secret = '068d53884b44e0d84b046786f2cf88f957db9787'
+    client_id = '你的ID'
+    client_secret = '你的secret'
     client = ImgurClient(client_id, client_secret)
 
     # Authorization flow, pin example (see docs for other auth types)
