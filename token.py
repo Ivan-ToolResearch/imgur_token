@@ -9,7 +9,7 @@ Created on Mon Apr 23 12:53:30 2018
 from imgurpython import ImgurClient
 
 
-
+# 讓你輸入字串
 def get_input(string):
     return input(string)
 
@@ -20,15 +20,15 @@ def authenticate():
     client_secret = '你的secret'
     client = ImgurClient(client_id, client_secret)
 
-    # Authorization flow, pin example (see docs for other auth types)
+    # 進行請求，取得URL，要利用瀏覽去登入該網址，才能取得等等的pin碼
     authorization_url = client.get_auth_url('pin')
 
     print("Go to the following URL: {0}".format(authorization_url))
 
-    # Read in the pin, handle Python 2 or 3 here.
+    # 要求輸入網頁中的pin碼
     pin = get_input("Enter pin code: ")
 
-    # ... redirect user to `authorization_url`, obtain pin (or code or token) ...
+    # 獲取TOKEN
     credentials = client.authorize(pin, 'pin')
     client.set_user_auth(credentials['access_token'], credentials['refresh_token'])
 
@@ -39,6 +39,6 @@ def authenticate():
     return client
 
 
-# If you want to run this as a standalone script, so be it!
+
 if __name__ == "__main__":
     authenticate()
